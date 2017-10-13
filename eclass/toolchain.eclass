@@ -393,7 +393,7 @@ get_gcc_src_uri() {
 		fi
 	fi
 
-	# TODO: Add bootstraps for arm64/mips/ppc/other arches.
+	# TODO: Add bootstraps for mips/ppc/other arches.
 	if in_iuse ada; then
 		GCC_SRC_URI+=" amd64? ( https://dev.gentoo.org/~nerdboy/files/gnatboot-${GNAT_BOOTSTRAP_VERSION}-amd64.tar.xz )
 				arm? ( https://dev.gentoo.org/~nerdboy/files/gnatboot-${GNAT_BOOTSTRAP_VERSION}-arm.tar.xz )
@@ -914,12 +914,12 @@ toolchain_src_configure() {
 	[[ -n ${CBUILD} ]] && confgcc+=( --build=${CBUILD} )
 
 	# Add variables we need to make the build find the bootstrap compiler.
-	# We only want to use the gnat-bootstrap compiler for stage 1 of bootstrap, this will build the necessary compilers,
-	# then stage 2 uses these compilers.
+	# We only want to use the gnat-bootstrap compiler for stage 1 of bootstrap,
+	# this will build the necessary compilers, then stage 2 uses these compilers.
 	#
 	# We only want to use the gnat-bootstrap when we don't have an already installed GNAT compiler.
 	#    Note that gnatboot tarball will not be unpacked unless one of the
-	#    following is true: "use bootsrap" or gnatbind exists already.
+	#    following is true: "use bootsrap" or gnatbind does not exist already.
 	# Also, we don't want to pollute the build env if we are using gnat
 	# tools from the existing toolchain.
 	if use_if_iuse ada ; then
