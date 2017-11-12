@@ -22,21 +22,6 @@
  endif
 
  # -------------------------------------------
-@@ -980,12 +979,12 @@
-
- # This is the variable actually used when we compile. If you change this,
- # you probably want to update BUILD_CFLAGS in configure.ac
--HARD_CFLAGS =  -DEFAULT_PIE_SSP
-+HARD_CFLAGS =  -DEFAULT_PIE_SSP
- ALL_CFLAGS = $(HARD_CFLAGS) $(ESP_NOPIE_CFLAGS) $(T_CFLAGS) $(CFLAGS-$@) \
-   $(CFLAGS) $(INTERNAL_CFLAGS) $(COVERAGE_FLAGS) $(WARN_CFLAGS) @DEFS@
-
- # The C++ version.
--HARD_CFLAGS =  -DEFAULT_PIE_SSP
-+HARD_CFLAGS =  -DEFAULT_PIE_SSP
- ALL_CXXFLAGS = $(HARD_CFLAGS) $(ESP_NOPIE_CFLAGS) $(T_CFLAGS) $(CFLAGS-$@) $(CXXFLAGS) \
-   $(INTERNAL_CFLAGS) $(COVERAGE_FLAGS) $(NOEXCEPTION_FLAGS) \
-   $(WARN_CXXFLAGS) @DEFS@
 --- a/libgcc/Makefile.in	2017-09-17 22:56:59.303783557 -0700
 +++ b/libgcc/Makefile.in	2017-09-17 15:59:58.896486977 -0700
 @@ -228,7 +228,9 @@

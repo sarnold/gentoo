@@ -42,5 +42,6 @@ src_prepare() {
 
 	toolchain_src_prepare
 
-	use hardened && epatch "${FILESDIR}"/${PV}/${P}-hardened-adabuild.patch
+	epatch "${FILESDIR}"/${PV}/${P}-hardened-adabuild.patch \
+		"${FILESDIR}"/${PN}-4.9.4-fix-qa-warning-add-missing-include.patch
 }
