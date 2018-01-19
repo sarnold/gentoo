@@ -41,4 +41,7 @@ src_prepare() {
 	is_crosscompile && EPATCH_EXCLUDE+=" 05_all_gcc-spec-env.patch"
 
 	toolchain_src_prepare
+
+	epatch "${FILESDIR}"/${PV}/${P}-hardened-adabuild.patch \
+		"${FILESDIR}"/${PN}-4.9.4-fix-qa-warning-add-missing-include.patch
 }
